@@ -2,27 +2,15 @@ package main
 
 import (
 	"fmt"
+	"go_alura_oo/clientes"
 	"go_alura_oo/contas"
 )
 
 func main() {
-	// conta_da_silvia := ContaCorrente{}
-	// conta_da_silvia.titular = "Silvia"
-	// conta_da_silvia.saldo = 500
+	clienteGustavo := clientes.Titular{Nome: "Gustavo", CPF: "123.111.123-12", Profissao: "Desenvolvedor"}
+	contaDoGustavo := contas.ContaCorrente{Titular: clienteGustavo}
 
-	// fmt.Println(conta_da_silvia.saldo)
-	// fmt.Println(conta_da_silvia.sacar(400))
-	// fmt.Println(conta_da_silvia.saldo)
+	contaDoGustavo.Depositar(100)
 
-	// status, saldo := conta_da_silvia.depositar(-500)
-	// fmt.Println(status, "Saldo atual:", saldo)
-
-	contaDaSilva := contas.ContaCorrente{Titular: "Silvia", Saldo: 300}
-	contaDoGustavo := contas.ContaCorrente{Titular: "Gustavo", Saldo: 100}
-
-	status := contaDaSilva.Transferir(-200, &contaDoGustavo)
-
-	fmt.Println(status)
-	fmt.Println(contaDaSilva)
-	fmt.Println(contaDoGustavo)
+	fmt.Println(contaDoGustavo.GetSaldo())
 }
